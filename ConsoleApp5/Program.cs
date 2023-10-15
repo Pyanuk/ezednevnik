@@ -1,24 +1,29 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class Note
+namespace ConsoleApp5
 {
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public DateTime Date { get; set; }
-    public DateTime Deadline { get; set; }
+    internal class ramil
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime Deadline { get; set; }
+    }
 }
-
-class Program
+class MPT
 {
-    static List<Note> notes = new List<Note>();
+    static List<ramil> ramils = new List<ramil>();
 
     static int selectedNoteIndex = 0;
 
     static void Main(string[] args)
     {
-        
-        notes.Add(new Note
+
+        ramils.Add(new ramil
         {
             Title = "Пойти в МПТ",
             Description = "Показать код Софии Алексеевне ",
@@ -26,7 +31,7 @@ class Program
             Deadline = new DateTime(2023, 10, 13)
         });
 
-        notes.Add(new Note
+        ramils.Add(new ramil
         {
             Title = "Закончить 1 курс",
             Description = "Окончить 1 курс на 5",
@@ -34,7 +39,7 @@ class Program
             Deadline = new DateTime(2024, 7, 1)
         });
 
-        notes.Add(new Note
+        ramils.Add(new ramil
         {
             Title = "Купить сиги",
             Description = "Ебаный винстон синий",
@@ -71,21 +76,21 @@ class Program
         Console.WriteLine(":-)");
         Console.WriteLine("Ежедневник");
 
-        for (int i = 0; i < notes.Count; i++)
+        for (int i = 0; i < ramils.Count; i++)
         {
             if (i == selectedNoteIndex)
                 Console.Write("-> ");
             else
                 Console.Write("   ");
 
-            Console.WriteLine(notes[i].Title);
+            Console.WriteLine(ramils[i].Title);
         }
     }
 
     static void ShowNoteDetails()
     {
         Console.Clear();
-        Note selectedNote = notes[selectedNoteIndex];
+        ramil selectedNote = ramils[selectedNoteIndex];
 
         Console.WriteLine($"Название: {selectedNote.Title}");
         Console.WriteLine($"Описание: {selectedNote.Description}");
@@ -99,7 +104,7 @@ class Program
     static void MoveToNextNote()
     {
         selectedNoteIndex++;
-        if (selectedNoteIndex >= notes.Count)
+        if (selectedNoteIndex >= ramils.Count)
             selectedNoteIndex = 0;
     }
 
@@ -107,6 +112,14 @@ class Program
     {
         selectedNoteIndex--;
         if (selectedNoteIndex < 0)
-            selectedNoteIndex = notes.Count - 1;
+            selectedNoteIndex = ramils.Count - 1;
     }
+}
+
+internal class ramil
+{
+    public string Description { get; internal set; }
+    public string Title { get; internal set; }
+    public DateTime Date { get; internal set; }
+    public DateTime Deadline { get; internal set; }
 }
