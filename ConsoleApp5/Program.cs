@@ -34,7 +34,7 @@ class MPT
         ramils.Add(new ramil
         {
             Title = "Закончить 1 курс",
-            Description = "Окончить 1 курс на 5",
+            Description = "Окончить 1 курс на 4 и 5",
             Date = new DateTime(2023, 9, 1),
             Deadline = new DateTime(2024, 7, 1)
         });
@@ -43,8 +43,23 @@ class MPT
         {
             Title = "Купить сиги",
             Description = "Ебаный винстон синий",
-            Date = new DateTime(2022, 10, 11),
-            Deadline = new DateTime(2022, 10, 1)
+            Date = new DateTime(2023, 10, 12),
+            Deadline = new DateTime(2023, 10, 12)
+        });
+        
+        ramils.Add(new ramil
+        {
+            Title = "Пойти по хавать",
+            Description = "Схавать пэрэмэч(татарское нацональное блюдо)",
+            Date = new DateTime(2023, 10, 9),
+            Deadline = new DateTime(2023, 10, 9)
+        });
+        ramils.Add(new ramil
+        {
+            Title = "Купить права",
+            Description = "Батя договориться за 40к",
+            Date = new DateTime(2024, 07, 01),
+            Deadline = new DateTime(202, 08, 01)
         });
 
         while (true)
