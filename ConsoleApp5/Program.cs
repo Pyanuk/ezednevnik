@@ -59,7 +59,7 @@ class MPT
             Title = "Купить права",
             Description = "Батя договориться за 40к",
             Date = new DateTime(2024, 07, 01),
-            Deadline = new DateTime(202, 08, 01)
+            Deadline = new DateTime(2024, 08, 01)
         });
 
         while (true)
