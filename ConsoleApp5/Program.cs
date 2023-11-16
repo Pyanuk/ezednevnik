@@ -35,8 +35,8 @@ class MPT
         {
             Title = "Закончить 1 курс",
             Description = "Окончить 1 курс на 4 и 5",
-            Date = new DateTime(2023, 9, 1),
-            Deadline = new DateTime(2024, 7, 1)
+            Date = new DateTime(2023, 10, 12),
+            Deadline = new DateTime(2023, 10, 12)
         });
 
         ramils.Add(new ramil
@@ -46,74 +46,44 @@ class MPT
             Date = new DateTime(2023, 10, 12),
             Deadline = new DateTime(2023, 10, 12)
         });
-        
+
         ramils.Add(new ramil
         {
             Title = "Пойти по хавать",
             Description = "Схавать пэрэмэч(татарское нацональное блюдо)",
-            Date = new DateTime(2023, 10, 9),
-            Deadline = new DateTime(2023, 10, 9)
+            Date = new DateTime(2023, 10, 12),
+            Deadline = new DateTime(2023, 10, 12)
         });
         ramils.Add(new ramil
         {
             Title = "Купить права",
             Description = "Батя договориться за 40к",
-            Date = new DateTime(2024, 07, 01),
-            Deadline = new DateTime(2024, 08, 01)
+            Date = new DateTime(2023, 10, 12),
+            Deadline = new DateTime(2023, 10, 12)
         });
 
         while (true)
         {
-            Console.Clear();
-            ShowMenu();
+            Console.Clear(); 
+            var currentNote = ramils[selectedNoteIndex];
+            Console.WriteLine(":-)");
+            Console.WriteLine("Ежедневник");
+            Console.WriteLine($"Заголовок: {currentNote.Title}");
+            Console.WriteLine($"Описание: {currentNote.Description}");
+            Console.WriteLine($"Дата: {currentNote.Date}");
+            Console.WriteLine($"Дедлайн: {currentNote.Deadline}");
 
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
-            ConsoleKey key = keyInfo.Key;
-            switch (key)
+            // Wait for right or left arrow key input
+            var key = Console.ReadKey().Key;
+            if (key == ConsoleKey.LeftArrow)
             {
-                case ConsoleKey.LeftArrow:
-                    MoveToPreviousNote();
-                    break;
-                case ConsoleKey.RightArrow:
-                    MoveToNextNote();
-                    break;
-                case ConsoleKey.Enter:
-                    ShowNoteDetails();
-                    break;
-                case ConsoleKey.Escape:
-                    return;
+                MoveToPreviousNote();
+            }
+            else if (key == ConsoleKey.RightArrow)
+            {
+                MoveToNextNote();
             }
         }
-    }
-
-    static void ShowMenu()
-    {
-        Console.WriteLine(":-)");
-        Console.WriteLine("Ежедневник");
-
-        for (int i = 0; i < ramils.Count; i++)
-        {
-            if (i == selectedNoteIndex)
-                Console.Write("-> ");
-            else
-                Console.Write("   ");
-
-            Console.WriteLine(ramils[i].Title);
-        }
-    }
-
-    static void ShowNoteDetails()
-    {
-        Console.Clear();
-        ramil selectedNote = ramils[selectedNoteIndex];
-
-        Console.WriteLine($"Название: {selectedNote.Title}");
-        Console.WriteLine($"Описание: {selectedNote.Description}");
-        Console.WriteLine($"Дата: {selectedNote.Date.ToShortDateString()}");
-        Console.WriteLine($"Крайний срок: {selectedNote.Deadline.ToShortDateString()}\n");
-
-        Console.WriteLine("Нажмите любую клавишу, чтобы вернуться в меню...");
-        Console.ReadKey();
     }
 
     static void MoveToNextNote()
@@ -129,12 +99,12 @@ class MPT
         if (selectedNoteIndex < 0)
             selectedNoteIndex = ramils.Count - 1;
     }
-}
 
-internal class ramil
-{
-    public string Description { get; internal set; }
-    public string Title { get; internal set; }
-    public DateTime Date { get; internal set; }
-    public DateTime Deadline { get; internal set; }
+    internal class ramil
+    {
+        public string Description { get; internal set; }
+        public string Title { get; internal set; }
+        public DateTime Date { get; internal set; }
+        public DateTime Deadline { get; internal set; }
+    }
 }
