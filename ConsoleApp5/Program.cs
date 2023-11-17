@@ -72,8 +72,6 @@ class MPT
             Console.WriteLine($"Описание: {currentNote.Description}");
             Console.WriteLine($"Дата: {currentNote.Date}");
             Console.WriteLine($"Дедлайн: {currentNote.Deadline}");
-
-            // Wait for right or left arrow key input
             var key = Console.ReadKey().Key;
             if (key == ConsoleKey.LeftArrow)
             {
